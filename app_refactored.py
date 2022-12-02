@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import urllib
+import urllib.request
 
 st.markdown('''# **Binance Price App**
 A simple cryptocurrency price app pulling price data from *Binance API*.
@@ -8,7 +10,9 @@ A simple cryptocurrency price app pulling price data from *Binance API*.
 st.header('**Selected Price**')
 
 # Load market data from Binance API
-df = pd.read_json('https://api.binance.com/api/v3/ticker/24hr')
+request_url = urllib.request.urlopen('https://api.binance.com/api/v3/ticker/24hr')
+df = pd.read_json(request_url)
+
 
 # Custom function for rounding values
 def round_value(input_value):
