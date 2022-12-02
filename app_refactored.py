@@ -1,3 +1,5 @@
+from http.cookiejar import CookieJar
+
 import streamlit as st
 import pandas as pd
 import urllib
